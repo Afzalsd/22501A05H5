@@ -154,3 +154,68 @@
 {"timestamp":"2025-06-28T05:56:44.863Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/123456789012345678901","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
 {"timestamp":"2025-06-28T05:56:44.864Z","level":"INFO","message":"Redirect request received","shortcode":"123456789012345678901","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
 {"timestamp":"2025-06-28T05:56:44.865Z","level":"INFO","message":"Response Sent","method":"GET","url":"/123456789012345678901","statusCode":400,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.023Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.033Z","level":"INFO","message":"Root endpoint accessed"}
+{"timestamp":"2025-06-28T06:21:36.039Z","level":"INFO","message":"Response Sent","method":"GET","url":"/","statusCode":200,"duration":"15ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.047Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.049Z","level":"INFO","message":"Create short URL request","url":"https://www.google.com","validity":30,"shortcode":"google1","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.052Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":409,"duration":"5ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.055Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.056Z","level":"INFO","message":"Create short URL request","url":"https://www.example.com","validity":60,"ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.059Z","level":"INFO","message":"Short URL created","shortcode":"9NuEPt","originalUrl":"https://www.example.com","expiryDate":"2025-06-28T07:21:36.059Z"}
+{"timestamp":"2025-06-28T06:21:36.060Z","level":"INFO","message":"Short URL created successfully","shortcode":"9NuEPt","originalUrl":"https://www.example.com","shortLink":"http://localhost:3000/9NuEPt","expiryDate":"2025-06-28T07:21:36.059Z"}
+{"timestamp":"2025-06-28T06:21:36.061Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":201,"duration":"6ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.064Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.065Z","level":"INFO","message":"Create short URL request","url":"https://www.github.com","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.065Z","level":"INFO","message":"Short URL created","shortcode":"SxvFgV","originalUrl":"https://www.github.com","expiryDate":"2025-06-28T06:51:36.065Z"}
+{"timestamp":"2025-06-28T06:21:36.065Z","level":"INFO","message":"Short URL created successfully","shortcode":"SxvFgV","originalUrl":"https://www.github.com","shortLink":"http://localhost:3000/SxvFgV","expiryDate":"2025-06-28T06:51:36.065Z"}
+{"timestamp":"2025-06-28T06:21:36.066Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":201,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.069Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.070Z","level":"INFO","message":"Create short URL request","url":"not-a-valid-url","validity":30,"ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.071Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":400,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.073Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.075Z","level":"INFO","message":"Create short URL request","validity":30,"shortcode":"nourl","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.076Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":400,"duration":"3ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.078Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.079Z","level":"INFO","message":"Create short URL request","url":"https://www.example.com","shortcode":"ab","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.082Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":400,"duration":"4ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.085Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.086Z","level":"INFO","message":"Create short URL request","url":"https://www.example.com","shortcode":"test@123","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.087Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":400,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.089Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.090Z","level":"INFO","message":"Create short URL request","url":"https://www.example.com","validity":600000,"ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.091Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":400,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.094Z","level":"INFO","message":"Incoming Request","method":"POST","url":"/shorturls","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.095Z","level":"INFO","message":"Create short URL request","url":"https://www.duplicate.com","shortcode":"google1","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.096Z","level":"INFO","message":"Response Sent","method":"POST","url":"/shorturls","statusCode":409,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.110Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/shorturls/9NuEPt","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.111Z","level":"INFO","message":"Get URL statistics request","shortcode":"9NuEPt","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.112Z","level":"INFO","message":"URL statistics retrieved","shortcode":"9NuEPt","totalClicks":0,"isActive":true}
+{"timestamp":"2025-06-28T06:21:36.112Z","level":"INFO","message":"Response Sent","method":"GET","url":"/shorturls/9NuEPt","statusCode":200,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.116Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/9NuEPt","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.117Z","level":"INFO","message":"Redirect request received","shortcode":"9NuEPt","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.133Z","level":"INFO","message":"Click recorded","shortcode":"9NuEPt","totalClicks":1,"clickData":{"timestamp":"2025-06-28T06:21:36.133Z","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0","referrer":"direct","location":{"country":"Local","region":"Local","city":"Local","timezone":"Asia/Calcutta"}}}
+{"timestamp":"2025-06-28T06:21:36.134Z","level":"INFO","message":"Redirecting to original URL","shortcode":"9NuEPt","originalUrl":"https://www.example.com","ip":"::1","location":"Local, Local"}
+{"timestamp":"2025-06-28T06:21:36.135Z","level":"INFO","message":"Response Sent","method":"GET","url":"/9NuEPt","statusCode":302,"duration":"19ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.460Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/shorturls/9NuEPt","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.461Z","level":"INFO","message":"Get URL statistics request","shortcode":"9NuEPt","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.462Z","level":"INFO","message":"URL statistics retrieved","shortcode":"9NuEPt","totalClicks":1,"isActive":true}
+{"timestamp":"2025-06-28T06:21:36.462Z","level":"INFO","message":"Response Sent","method":"GET","url":"/shorturls/9NuEPt","statusCode":200,"duration":"2ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.465Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/shorturls/ab","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.467Z","level":"INFO","message":"Get URL statistics request","shortcode":"ab","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.468Z","level":"INFO","message":"Response Sent","method":"GET","url":"/shorturls/ab","statusCode":400,"duration":"3ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.470Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/ab","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.470Z","level":"INFO","message":"Redirect request received","shortcode":"ab","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.471Z","level":"INFO","message":"Response Sent","method":"GET","url":"/ab","statusCode":400,"duration":"1ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.473Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/shorturls/test@123","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.475Z","level":"INFO","message":"Get URL statistics request","shortcode":"test@123","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.476Z","level":"INFO","message":"Response Sent","method":"GET","url":"/shorturls/test@123","statusCode":400,"duration":"3ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.477Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/test@123","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.478Z","level":"INFO","message":"Redirect request received","shortcode":"test@123","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.480Z","level":"INFO","message":"Response Sent","method":"GET","url":"/test@123","statusCode":400,"duration":"3ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.484Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/shorturls/123456789012345678901","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.485Z","level":"INFO","message":"Get URL statistics request","shortcode":"123456789012345678901","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.486Z","level":"INFO","message":"Response Sent","method":"GET","url":"/shorturls/123456789012345678901","statusCode":400,"duration":"1ms","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.488Z","level":"INFO","message":"Incoming Request","method":"GET","url":"/123456789012345678901","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.489Z","level":"INFO","message":"Redirect request received","shortcode":"123456789012345678901","ip":"::1","userAgent":"URL-Shortener-Test-Script/1.0"}
+{"timestamp":"2025-06-28T06:21:36.490Z","level":"INFO","message":"Response Sent","method":"GET","url":"/123456789012345678901","statusCode":400,"duration":"2ms","ip":"::1"}

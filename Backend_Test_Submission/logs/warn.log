@@ -27,3 +27,16 @@
 {"timestamp":"2025-06-28T05:56:44.847Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"test@123","ip":"::1"}
 {"timestamp":"2025-06-28T05:56:44.852Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"123456789012345678901"}
 {"timestamp":"2025-06-28T05:56:44.864Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"123456789012345678901","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.051Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T06:21:36.070Z","level":"WARN","message":"Invalid URL format","url":"not-a-valid-url"}
+{"timestamp":"2025-06-28T06:21:36.075Z","level":"WARN","message":"Missing required field: url"}
+{"timestamp":"2025-06-28T06:21:36.080Z","level":"WARN","message":"Invalid shortcode format","shortcode":"ab"}
+{"timestamp":"2025-06-28T06:21:36.086Z","level":"WARN","message":"Invalid shortcode format","shortcode":"test@123"}
+{"timestamp":"2025-06-28T06:21:36.090Z","level":"WARN","message":"Invalid validity period","validity":600000}
+{"timestamp":"2025-06-28T06:21:36.095Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T06:21:36.467Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"ab"}
+{"timestamp":"2025-06-28T06:21:36.471Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"ab","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.475Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"test@123"}
+{"timestamp":"2025-06-28T06:21:36.479Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"test@123","ip":"::1"}
+{"timestamp":"2025-06-28T06:21:36.485Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"123456789012345678901"}
+{"timestamp":"2025-06-28T06:21:36.490Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"123456789012345678901","ip":"::1"}
