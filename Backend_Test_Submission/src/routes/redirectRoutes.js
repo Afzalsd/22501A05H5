@@ -3,6 +3,7 @@ const router = express.Router();
 const UrlModel = require('../models/UrlModel');
 const UrlHelpers = require('../utils/helpers');
 const { logger } = require('../middleware/logger');
+const { Log } = require('../Logging-Middleware/logger'); // ✅ Remote log
 
 // GET /:shortcode - Redirect to original URL
 router.get('/:shortcode', async (req, res) => {
@@ -20,6 +21,7 @@ router.get('/:shortcode', async (req, res) => {
     // Validate shortcode format
     if (!UrlHelpers.isValidShortcode(shortcode)) {
       logger.warn('Invalid shortcode format in redirect request', { shortcode, ip: clientIP });
+      Log("backend", "warn", "handler", `Invalid shortcode format: ${shortcode}`);
       return res.status(400).json(
         UrlHelpers.formatResponse(false, null, 'Invalid shortcode format', ['Shortcode must be 3-20 alphanumeric characters'])
       );
@@ -30,6 +32,7 @@ router.get('/:shortcode', async (req, res) => {
 
     if (!urlData) {
       logger.warn('Shortcode not found or expired for redirect', { shortcode, ip: clientIP });
+      Log("backend", "warn", "handler", `Shortcode not found or expired: ${shortcode}`);
       return res.status(404).json(
         UrlHelpers.formatResponse(false, null, 'Short URL not found or has expired', ['The requested shortcode does not exist or has expired'])
       );
@@ -50,6 +53,7 @@ router.get('/:shortcode', async (req, res) => {
 
     if (!clickRecorded) {
       logger.error('Failed to record click analytics', { shortcode, clickData });
+      Log("backend", "error", "handler", `Failed to record click for shortcode: ${shortcode}`);
     }
 
     logger.info('Redirecting to original URL', {
@@ -58,6 +62,7 @@ router.get('/:shortcode', async (req, res) => {
       ip: clientIP,
       location: `${location.city}, ${location.country}`
     });
+    Log("backend", "info", "handler", `Redirecting to: ${urlData.originalUrl} for shortcode: ${shortcode}`);
 
     // Perform the redirect
     res.redirect(302, urlData.originalUrl);
@@ -69,14 +74,16 @@ router.get('/:shortcode', async (req, res) => {
       shortcode: req.params.shortcode,
       ip: UrlHelpers.getClientIP(req)
     });
-    
+
+    Log("backend", "error", "handler", `Exception during redirect: ${error.message}`);
+
     res.status(500).json(
       UrlHelpers.formatResponse(false, null, 'Internal server error', ['An unexpected error occurred during redirect'])
     );
   }
 });
 
-// Handle health check
+// Health check
 router.get('/health', (req, res) => {
   logger.info('Health check requested');
   res.status(200).json({

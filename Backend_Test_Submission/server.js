@@ -1,5 +1,6 @@
 const UrlShortenerApp = require('./src/app');
 const { logger } = require('./src/middleware/logger');
+const { Log } = require('./src/Logging-Middleware/logger'); // ✅ Remote logger
 const UrlModel = require('./src/models/UrlModel');
 
 // Environment configuration
@@ -22,66 +23,74 @@ const server = app.listen(PORT, HOST, () => {
     timestamp: new Date().toISOString()
   });
 
-  console.log(`\n🚀 URL Shortener Microservice is running!`);
-  console.log(`📍 Server: http://${HOST}:${PORT}`);
-  console.log(`📊 Environment: ${NODE_ENV}`);
-  console.log(`🔧 Process ID: ${process.pid}`);
-  console.log(`\n📋 Available Endpoints:`);
+  Log("backend", "info", "middleware", "URL Shortener Microservice started"); // 
+
+  console.log(`\n URL Shortener Microservice is running!`);
+  console.log(`Server: http://${HOST}:${PORT}`);
+  console.log(` Environment: ${NODE_ENV}`);
+  console.log(`Process ID: ${process.pid}`);
+  console.log(`\n Available Endpoints:`);
   console.log(`   POST http://${HOST}:${PORT}/shorturls - Create short URL`);
   console.log(`   GET  http://${HOST}:${PORT}/shorturls/:shortcode - Get statistics`);
   console.log(`   GET  http://${HOST}:${PORT}/:shortcode - Redirect to original URL`);
   console.log(`   GET  http://${HOST}:${PORT}/health - Health check`);
-  console.log(`\n📁 Logs are stored in: ./logs/`);
-  console.log(`\n⏹️  Press Ctrl+C to stop the server\n`);
+  console.log(`\n Logs are stored in: ./logs/`);
+  console.log(`\n   Press Ctrl+C to stop the server\n`);
 });
 
-// Setup cleanup interval for expired URLs (run every hour)
+// Scheduled cleanup of expired URLs (every hour)
 const cleanupInterval = setInterval(() => {
   logger.info('Running scheduled cleanup of expired URLs');
+  Log("backend", "info", "middleware", "Scheduled cleanup triggered"); // 
+
   const cleanedCount = UrlModel.cleanupExpired();
-  
+
   if (cleanedCount > 0) {
     logger.info('Cleanup completed', { expiredUrlsRemoved: cleanedCount });
+    Log("backend", "info", "middleware", `${cleanedCount} expired URLs cleaned`); // 
   }
-}, 60 * 60 * 1000); // 1 hour
+}, 60 * 60 * 1000); // Every 1 hour
 
-// Graceful shutdown handling
+// Graceful shutdown
 const gracefulShutdown = (signal) => {
   logger.info('Graceful shutdown initiated', { signal });
-  console.log(`\n📴 Received ${signal}. Shutting down gracefully...`);
-  
-  // Clear the cleanup interval
+  Log("backend", "info", "middleware", `Graceful shutdown initiated with signal: ${signal}`); // 
+
+  console.log(`\n Received ${signal}. Shutting down gracefully...`);
+
   clearInterval(cleanupInterval);
-  
-  // Close the server
+
   server.close((err) => {
     if (err) {
       logger.error('Error during server shutdown', { error: err.message });
+      Log("backend", "fatal", "middleware", `Error during shutdown: ${err.message}`); // 
       console.error('❌ Error during shutdown:', err.message);
       process.exit(1);
     }
-    
+
     logger.info('Server shut down successfully');
-    console.log('✅ Server shut down complete');
+    Log("backend", "info", "middleware", "Server shut down successfully"); // 
+    console.log(' Server shut down complete');
     process.exit(0);
   });
 
-  // Force shutdown after 10 seconds
   setTimeout(() => {
     logger.error('Forced shutdown due to timeout');
+    Log("backend", "fatal", "middleware", "Forced shutdown due to timeout"); // 
     console.error('❌ Forced shutdown due to timeout');
     process.exit(1);
-  }, 10000);
+  }, 10000); // 10s timeout
 };
 
-// Handle graceful shutdown signals
+// Listen for shutdown signals
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 // Handle server errors
 server.on('error', (error) => {
   logger.error('Server error', { error: error.message, stack: error.stack });
-  
+  Log("backend", "fatal", "middleware", `Server error: ${error.message}`); // 
+
   if (error.code === 'EADDRINUSE') {
     console.error(`❌ Port ${PORT} is already in use. Please use a different port.`);
     process.exit(1);

@@ -1,4 +1,5 @@
 const { logger } = require('../middleware/logger');
+const { Log } = require('../Logging-Middleware/logger');
 
 class UrlModel {
   constructor() {
@@ -19,7 +20,7 @@ class UrlModel {
     };
 
     this.urls.set(shortcode, urlData);
-    
+
     // Initialize analytics for this shortcode
     this.analytics.set(shortcode, {
       totalClicks: 0,
@@ -31,6 +32,7 @@ class UrlModel {
       originalUrl,
       expiryDate: expiryDate.toISOString()
     });
+    Log("backend", "info", "handler", `Short URL created: ${shortcode}`);
 
     return urlData;
   }
@@ -38,18 +40,20 @@ class UrlModel {
   // Find URL by shortcode
   findByShortcode(shortcode) {
     const urlData = this.urls.get(shortcode);
-    
+
     if (!urlData) {
       logger.warn('Short URL not found', { shortcode });
+      Log("backend", "warn", "handler", `Short URL not found: ${shortcode}`);
       return null;
     }
 
     // Check if URL has expired
     if (new Date() > urlData.expiryDate) {
-      logger.warn('Short URL has expired', { 
-        shortcode, 
-        expiryDate: urlData.expiryDate.toISOString() 
+      logger.warn('Short URL has expired', {
+        shortcode,
+        expiryDate: urlData.expiryDate.toISOString()
       });
+      Log("backend", "warn", "handler", `Short URL expired: ${shortcode}`);
       return null;
     }
 
@@ -64,9 +68,10 @@ class UrlModel {
   // Record a click/visit
   recordClick(shortcode, clickData) {
     const analytics = this.analytics.get(shortcode);
-    
+
     if (!analytics) {
       logger.error('Analytics not found for shortcode', { shortcode });
+      Log("backend", "error", "handler", `No analytics for shortcode: ${shortcode}`);
       return false;
     }
 
@@ -86,6 +91,7 @@ class UrlModel {
       totalClicks: analytics.totalClicks,
       clickData: click
     });
+    Log("backend", "info", "handler", `Click recorded for shortcode: ${shortcode}`);
 
     return true;
   }
@@ -96,6 +102,8 @@ class UrlModel {
     const analytics = this.analytics.get(shortcode);
 
     if (!urlData || !analytics) {
+      logger.warn('Analytics or URL not found', { shortcode });
+      Log("backend", "warn", "handler", `Analytics or URL not found for: ${shortcode}`);
       return null;
     }
 
@@ -138,6 +146,7 @@ class UrlModel {
 
     if (cleanedCount > 0) {
       logger.info('Cleaned up expired URLs', { count: cleanedCount });
+      Log("backend", "info", "cron_job", `Cleaned up ${cleanedCount} expired URLs`);
     }
 
     return cleanedCount;
