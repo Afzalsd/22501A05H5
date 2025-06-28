@@ -1,0 +1,29 @@
+{"timestamp":"2025-06-28T05:42:36.268Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"favicon.ico","ip":"::1"}
+{"timestamp":"2025-06-28T05:43:30.482Z","level":"WARN","message":"Short URL not found","shortcode":"health"}
+{"timestamp":"2025-06-28T05:43:30.483Z","level":"WARN","message":"Shortcode not found or expired for redirect","shortcode":"health","ip":"::1"}
+{"timestamp":"2025-06-28T05:48:13.730Z","level":"WARN","message":"Invalid URL format","url":"not-a-valid-url"}
+{"timestamp":"2025-06-28T05:48:13.739Z","level":"WARN","message":"Missing required field: url"}
+{"timestamp":"2025-06-28T05:48:13.748Z","level":"WARN","message":"Invalid shortcode format","shortcode":"ab"}
+{"timestamp":"2025-06-28T05:48:13.756Z","level":"WARN","message":"Invalid shortcode format","shortcode":"test@123"}
+{"timestamp":"2025-06-28T05:48:13.769Z","level":"WARN","message":"Invalid validity period","validity":600000}
+{"timestamp":"2025-06-28T05:48:13.782Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T05:48:14.057Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"ab"}
+{"timestamp":"2025-06-28T05:48:14.062Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"ab","ip":"::1"}
+{"timestamp":"2025-06-28T05:48:14.070Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"test@123"}
+{"timestamp":"2025-06-28T05:48:14.077Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"test@123","ip":"::1"}
+{"timestamp":"2025-06-28T05:48:14.082Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"123456789012345678901"}
+{"timestamp":"2025-06-28T05:48:14.087Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"123456789012345678901","ip":"::1"}
+{"timestamp":"2025-06-28T05:52:14.245Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T05:56:44.622Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T05:56:44.640Z","level":"WARN","message":"Invalid URL format","url":"not-a-valid-url"}
+{"timestamp":"2025-06-28T05:56:44.644Z","level":"WARN","message":"Missing required field: url"}
+{"timestamp":"2025-06-28T05:56:44.651Z","level":"WARN","message":"Invalid shortcode format","shortcode":"ab"}
+{"timestamp":"2025-06-28T05:56:44.656Z","level":"WARN","message":"Invalid shortcode format","shortcode":"test@123"}
+{"timestamp":"2025-06-28T05:56:44.672Z","level":"WARN","message":"Invalid validity period","validity":600000}
+{"timestamp":"2025-06-28T05:56:44.677Z","level":"WARN","message":"Shortcode already exists","shortcode":"google1"}
+{"timestamp":"2025-06-28T05:56:44.835Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"ab"}
+{"timestamp":"2025-06-28T05:56:44.839Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"ab","ip":"::1"}
+{"timestamp":"2025-06-28T05:56:44.842Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"test@123"}
+{"timestamp":"2025-06-28T05:56:44.847Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"test@123","ip":"::1"}
+{"timestamp":"2025-06-28T05:56:44.852Z","level":"WARN","message":"Invalid shortcode format in statistics request","shortcode":"123456789012345678901"}
+{"timestamp":"2025-06-28T05:56:44.864Z","level":"WARN","message":"Invalid shortcode format in redirect request","shortcode":"123456789012345678901","ip":"::1"}
